@@ -1,0 +1,19 @@
+{
+  "name": "clinica-veterinaria",
+  "version": "1.0.0",
+  "description": "Sistema legado de clínica veterinária",
+  "main": "dist/Main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/Main.js",
+    "dev": "tsc && node dist/Main.js",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["oop", "refactoring", "typescript"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "25.9.2",
+    "typescript": "6.0.3"
+  }
+}
