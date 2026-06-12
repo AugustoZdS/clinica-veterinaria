@@ -10,7 +10,7 @@ Seu trabalho é encontrá-las, corrigi-las e **defender cada correção**.
 
 ## Como trabalhar
 
-1. **Clone** este repositório
+1. **Clone** este repositório através de um [fork](https://docs.github.com/pt/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
 2. **Instale dependências:** `npm install`
 3. **Compile:** `npm run build`
 4. **Leia** o código com calma antes de mexer em qualquer coisa
