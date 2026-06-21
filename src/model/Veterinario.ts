@@ -1,5 +1,6 @@
 import { Pessoa } from "./Pessoa";
 import { Consulta } from "./Consulta";
+import { StatusConsulta } from "./StatusConsulta";
 
 export class Veterinario extends Pessoa {
   crmv: string;
@@ -33,7 +34,7 @@ export class Veterinario extends Pessoa {
   }
 
   finalizarConsulta(c: Consulta): void {
-    c.status = "finalizada";
+    c.status = StatusConsulta.FINALIZADA;
     this.historicoConsultas.push(c);
     this.disponivel = true;
   }
