@@ -1,11 +1,12 @@
 import { Animal } from "./Animal";
+import { StatusConsulta } from "./StatusConsulta";
 
 export class Consulta {
   id: number;
   animal: Animal;
   veterinario: string;
   dataHora: Date;
-  status: string;
+  status: StatusConsulta;
   motivoCancelamento?: string;
   valorConsulta: number;
   formaPagamento?: string;
@@ -35,7 +36,7 @@ export class Consulta {
     this.veterinario = veterinario;
     this.dataHora = dataHora;
     this.valorConsulta = valorConsulta;
-    this.status = "agendada";
+    this.status = StatusConsulta.AGENDADA;
     this.pago = false;
   }
 
@@ -53,7 +54,7 @@ export class Consulta {
   }
 
   cancelar(motivo: string): void {
-    this.status = "cancelada";
+    this.status = StatusConsulta.CANCELADA;
     this.motivoCancelamento = motivo;
   }
 
