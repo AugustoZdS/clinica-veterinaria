@@ -1,5 +1,6 @@
 import { Animal } from "./Animal";
 import { StatusConsulta } from "./StatusConsulta";
+import { FormaPagamento } from "./FormaPagamento";
 
 export class Consulta {
   id: number;
@@ -9,7 +10,7 @@ export class Consulta {
   status: StatusConsulta;
   motivoCancelamento?: string;
   valorConsulta: number;
-  formaPagamento?: string;
+  formaPagamento?: FormaPagamento;
   pago: boolean;
 
   constructor(
@@ -40,18 +41,10 @@ export class Consulta {
     this.pago = false;
   }
 
-  registrarPagamento(forma: string): void {
-    if (
-      forma === "pix" ||
-      forma === "cartao" ||
-      forma === "dinheiro"
-    ) {
-      this.formaPagamento = forma;
-      this.pago = true;
-    } else {
-      throw new Error("Forma de pagamento inválida: " + forma);
-    }
-  }
+  registrarPagamento(forma: FormaPagamento): void {
+  this.formaPagamento = forma;
+  this.pago = true;
+}
 
   cancelar(motivo: string): void {
     this.status = StatusConsulta.CANCELADA;

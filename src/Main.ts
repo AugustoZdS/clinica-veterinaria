@@ -4,6 +4,7 @@ import { Cachorro } from "./model/Cachorro";
 import { Gato } from "./model/Gato";
 import { Prontuario } from "./model/Prontuario";
 import { Estoque } from "./model/Estoque";
+import { FormaPagamento } from "./model/FormaPagamento";
 
 class Main {
   static main(): void {
@@ -62,10 +63,10 @@ class Main {
     const c2 = clinica.agendarConsulta("Mimi", "Dra. Ana", new Date());
 
     // ---- Pagamento -------------------------------------------------------
-    c1.registrarPagamento("pix");
+    c1.registrarPagamento(FormaPagamento.PIX);
 
     try {
-      c2.registrarPagamento("Cartao");
+      c2.registrarPagamento(FormaPagamento.CARTAO);
     } catch (e) {
       console.log("Erro no pagamento: " + (e as Error).message);
     }
