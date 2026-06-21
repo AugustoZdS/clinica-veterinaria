@@ -18,13 +18,16 @@ export class Consulta {
     dataHora: Date,
     valorConsulta: number
   ) {
-    try {
-      if (animal === null) throw new Error("animal nulo");
-      if (valorConsulta < 0) throw new Error("valor negativo");
-      if (veterinario === null || veterinario.length === 0)
-        throw new Error("sem veterinário");
-    } catch (e) {
-      console.log("Aviso: " + (e as Error).message);
+    if (animal === null) {
+      throw new Error("animal nulo");
+    }
+
+    if (valorConsulta < 0) {
+      throw new Error("valor negativo");
+    }
+
+    if (!veterinario || veterinario.length === 0) {
+      throw new Error("sem veterinário");
     }
 
     this.id = id;
@@ -57,17 +60,17 @@ export class Consulta {
   imprimirResumo(): void {
     console.log(
       "[Consulta #" +
-        this.id +
-        "] " +
-        this.animal.nome +
-        " | Vet: " +
-        this.veterinario +
-        " | Status: " +
-        this.status +
-        " | Valor: R$" +
-        this.valorConsulta +
-        " | Pago: " +
-        (this.pago ? "Sim" : "Não")
+      this.id +
+      "] " +
+      this.animal.nome +
+      " | Vet: " +
+      this.veterinario +
+      " | Status: " +
+      this.status +
+      " | Valor: R$" +
+      this.valorConsulta +
+      " | Pago: " +
+      (this.pago ? "Sim" : "Não")
     );
   }
 }
