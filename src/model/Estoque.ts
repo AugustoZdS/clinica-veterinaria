@@ -45,8 +45,8 @@ export class Estoque {
     return false;
   }
 
-  getItens(): InstanceType<typeof Estoque.Medicamento>[] {
-    return this.itens;
+  getItens(): ReadonlyArray<InstanceType<typeof Estoque.Medicamento>> {
+    return [...this.itens];
   }
 
   imprimirEstoque(): void {
@@ -54,14 +54,14 @@ export class Estoque {
     for (const m of this.itens) {
       console.log(
         m.nome +
-          " | " +
-          m.tipo +
-          " | Qtd: " +
-          m.quantidade +
-          " | Validade: " +
-          m.validade +
-          " | R$" +
-          m.preco
+        " | " +
+        m.tipo +
+        " | Qtd: " +
+        m.quantidade +
+        " | Validade: " +
+        m.validade +
+        " | R$" +
+        m.preco
       );
     }
   }
