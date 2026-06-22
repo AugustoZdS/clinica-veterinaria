@@ -2,14 +2,26 @@ type Especie = "cachorro" | "gato" | "passaro" | "reptil";
 type Porte = "pequeno" | "medio" | "grande";
 
 export class Animal {
-  nome: string;
-  idade: number;
-  peso: number;
+  private nome: string;
+  private peso: number;
+  private idade: number;
   especie: string;
   porte: string;
   nomeDono: string;
   telefoneDono: string;
   cpfDono: string;
+
+  getNome(): string {
+    return this.nome;
+  }
+
+  getPeso(): number {
+    return this.peso;
+  }
+
+  getIdade(): number {
+    return this.idade;
+  }
 
   constructor(
     nome: string,
@@ -23,7 +35,13 @@ export class Animal {
   ) {
     this.nome = nome;
     this.idade = idade;
+
+    if (peso <= 0) {
+      throw new Error("Peso inválido");
+    }
+
     this.peso = peso;
+
     this.especie = especie;
     this.porte = porte;
     this.nomeDono = nomeDono;
@@ -52,11 +70,11 @@ export class Animal {
     console.log("Idade  : " + this.idade + " anos");
     console.log(
       "Dono   : " +
-        this.nomeDono +
-        " | CPF: " +
-        this.cpfDono +
-        " | Tel: " +
-        this.telefoneDono
+      this.nomeDono +
+      " | CPF: " +
+      this.cpfDono +
+      " | Tel: " +
+      this.telefoneDono
     );
     console.log("=====================================");
   }
